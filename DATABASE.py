@@ -1,5 +1,4 @@
 import requests
-vxcv
 from textblob import TextBlob
 import pyodbc
 import time
