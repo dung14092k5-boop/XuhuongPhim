@@ -1,9 +1,9 @@
 name: Auto Movie Database Crawler
 
 on:
-  schedule:
-    - cron: "0 */6 * * *"    # chạy mỗi 6 tiếng
-    - cron: "0 5 * * *"      # chạy thêm 12h trưa giờ VN (5h UTC)
+ # schedule:
+  #  - cron: "0 */6 * * *"    # chạy mỗi 6 tiếng
+   # - cron: "0 5 * * *"      # chạy thêm 12h trưa giờ VN (5h UTC)
   workflow_dispatch:          # cho phép chạy thủ công
 
 jobs:
