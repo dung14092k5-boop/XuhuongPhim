@@ -1,0 +1,82 @@
+# ==========================
+# 🐍 Python
+# ==========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.env/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+Thumbs.db
+
+# ==========================
+# 🧩 Database / Data files
+# ==========================
+*.db
+*.sqlite3
+*.csv
+*.json
+
+# ==========================
+# 🔐 Secrets / Keys
+# ==========================
+*.key
+*.pem
+*.pfx
+secrets.json
+config.json
+
+# Nếu bạn có file chứa API KEY nội bộ (nên dùng .env)
+.env.local
+.env.secret
+credentials.json
+
+# ==========================
+# ⚙️ Visual Studio Code
+# ==========================
+.vscode/
+.history/
+
+# ==========================
+# 🧪 Pytest / Coverage
+# ==========================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.cache/
+.coverage.*
+
+# ==========================
+# 🧱 GitHub Actions cache
+# ==========================
+.github/workflows/*.yml~
