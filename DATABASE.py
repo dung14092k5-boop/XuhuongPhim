@@ -1,3 +1,4 @@
+pip install matplotlib pandas
 import requests
 from textblob import TextBlob
 import pyodbc
@@ -287,3 +288,80 @@ if __name__ == "__main__":
             print(f"- {movie['title']} | IMDb: {movie.get('imdb_rating','N/A')} | Sentiment: {movie['sentiment']}")
     else:
         print("⚠️ Không có dữ liệu nào để lưu!")
+
+# ======================
+# 🎨 8️⃣ TRỰC QUAN HÓA CẢM XÚC
+# ======================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+def visualize_sentiment(movie_data_list):
+    # Chuyển danh sách phim thành DataFrame
+    df = pd.DataFrame(movie_data_list)
+
+    # Nếu không có dữ liệu sentiment thì dừng
+    if 'sentiment' not in df.columns or df.empty:
+        print("⚠️ Không có dữ liệu cảm xúc để trực quan hóa.")
+        return
+
+    # =============================
+    # 🔹 Biểu đồ tròn tổng quan cảm xúc
+    # =============================
+    sentiment_counts = df['sentiment'].value_counts()
+
+    plt.figure(figsize=(6,6))
+    plt.pie(
+        sentiment_counts,
+        labels=sentiment_counts.index,
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=['#2ecc71', '#f1c40f', '#e74c3c']  # xanh / vàng / đỏ
+    )
+    plt.title("Tỷ lệ cảm xúc khán giả (Sentiment Analysis)", fontsize=14, fontweight='bold')
+    plt.show()
+
+    # =============================
+    # 🔹 Biểu đồ cột cảm xúc theo thể loại
+    # =============================
+    # Tách nhiều thể loại thành từng dòng
+    genre_sentiments = []
+    for _, row in df.iterrows():
+        if pd.notna(row.get('genre')) and pd.notna(row.get('sentiment')):
+            for g in [x.strip() for x in row['genre'].split(',')]:
+                genre_sentiments.append({
+                    "Genre": g,
+                    "Sentiment": row['sentiment']
+                })
+
+    genre_df = pd.DataFrame(genre_sentiments)
+    if genre_df.empty:
+        print("⚠️ Không có dữ liệu thể loại để trực quan hóa.")
+        return
+
+    # Đếm số lượng cảm xúc theo thể loại
+    genre_summary = genre_df.groupby(['Genre', 'Sentiment']).size().unstack(fill_value=0)
+
+    # Lấy top 8 thể loại phổ biến nhất
+    top_genres = genre_df['Genre'].value_counts().head(8).index
+    genre_summary = genre_summary.loc[top_genres]
+
+    # Vẽ biểu đồ cột
+    genre_summary.plot(
+        kind='bar',
+        figsize=(10,6),
+        color=['#2ecc71', '#f1c40f', '#e74c3c']
+    )
+    plt.title("Phân bố cảm xúc theo thể loại phim", fontsize=14, fontweight='bold')
+    plt.xlabel("Thể loại phim", fontsize=12)
+    plt.ylabel("Số lượng phim", fontsize=12)
+    plt.xticks(rotation=45, ha='right')
+    plt.legend(title="Cảm xúc")
+    plt.tight_layout()
+    plt.show()
+
+# ======================
+# 🧠 Gọi hàm trực quan hóa sau khi thu thập dữ liệu
+# ======================
+if movie_data_list:
+    visualize_sentiment(movie_data_list)
+plt.savefig("sentiment_pie_chart.png", dpi=300)
