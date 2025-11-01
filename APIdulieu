@@ -1,0 +1,86 @@
+Metadata, genres, cast/crew (API)
+
+https://developer.themoviedb.org/reference/intro/getting-started
+
+https://api.themoviedb.org/3/genre/movie/list
+
+https://api.themoviedb.org/3/discover/movie
+
+https://api.themoviedb.org/3/movie/{id}
+
+https://api.themoviedb.org/3/movie/{id}/external_ids
+
+https://api.themoviedb.org/3/movie/{id}/credits
+
+https://api.themoviedb.org/3/movie/{id}?append_to_response=belongs_to_collection
+
+Ratings (API)
+
+https://www.omdbapi.com/
+ (IMDb, Rotten Tomatoes, Metacritic qua OMDb)
+
+https://api.themoviedb.org/3/movie/{id}
+ (vote_average, vote_count)
+
+Box office, ngân sách, opening weekend (HTML + CSV khi có)
+
+https://www.the-numbers.com/box-office-chart/weekend/2025-01-05
+
+https://www.the-numbers.com/market/2024/top-grossing-movies
+
+https://www.the-numbers.com/market/genres
+
+https://en.wikipedia.org/wiki/2024_in_film
+
+https://en.wikipedia.org/wiki/List_of_2024_box_office_number-one_films_in_the_United_States
+
+(Trang từng phim trên Wikipedia: mục Infobox “Budget” và “Box office”)
+
+Wikipedia API (thay cho cào HTML khi tiện)
+
+https://en.wikipedia.org/w/api.php?action=parse&prop=wikitext&page=2024_in_film&format=json
+
+Streaming popularity (CSV chính thức)
+
+https://top10.netflix.com/data/all-weeks-countries.csv
+
+https://top10.netflix.com/
+ (mô tả dữ liệu)
+
+Trailer stats (API)
+
+https://developers.google.com/youtube/v3/docs/videos/list
+ (part=statistics)
+
+Quan tâm công chúng
+
+https://github.com/GeneralMills/pytrends
+ (Google Trends không có API chính thức, dùng pytrends)
+
+Awards (cào bảng Wikipedia)
+
+https://en.wikipedia.org/wiki/Academy_Awards
+
+https://en.wikipedia.org/wiki/Golden_Globe_Awards
+
+https://en.wikipedia.org/wiki/British_Academy_Film_Awards
+
+https://en.wikipedia.org/wiki/Cannes_Film_Festival
+
+Bối cảnh thị trường (API công khai)
+
+https://api.worldbank.org/v2/country/VN/indicator/NY.GDP.PCAP.CD?format=json
+
+https://api.worldbank.org/v2/country/US/indicator/NE.CON.PRVT.KD?format=json
+
+Thêm nguồn phòng vé uy tín theo quốc gia (tuỳ cần)
+
+https://www.bfi.org.uk/industry-data-insights/weekend-box-office
+ (UK)
+
+https://www.kobis.or.kr/kobis/business/stat/boxs/findWeeklyBoxOfficeList.do
+ (KR; có API KOBIS)
+
+https://boxofficeturkiye.com/hafta-sonu
+ (TR)
+
