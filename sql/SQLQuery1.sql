@@ -100,6 +100,8 @@ CREATE TABLE Ratings (
     score FLOAT NULL,
     vote_count INT NULL,
     last_updated DATETIME DEFAULT GETDATE(),
+    critics_score FLOAT NULL,
+    audience_score FLOAT NULL,
     PRIMARY KEY (movie_id, source_name)
 );
 GO
